@@ -1,0 +1,24 @@
+body {
+  background: #eee;
+}
+
+.scroll-wrapper {
+  position: relative;
+}
+
+.scroller {
+  position: absolute;
+  white-space: nowrap;
+  animation: 57.52s linear infinite scrollWrapperSlide;
+  margin-left: 376px;
+}
+
+@keyframes scrollWrapperSlide {
+  from {
+    margin-left: 376px;
+  }
+
+  to {
+    margin-left: -5752.96875px;
+  }
+}
