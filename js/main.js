@@ -37,12 +37,12 @@ var NewsScroller = function(obj) {
         styleSheeet = document.createElement('style'),
         scrollOffset = scrollerParent.getBoundingClientRect().right,
         rand = randomNumber(),
-        keyframesName = 'tickerKF-'+rand;
+        keyframesName = 'tickerKF-'+rand,
         css = [
           '.scroll-wrapper {position: relative;}',
           '.scroller-'+rand+' {opacity: 0; position: absolute; white-space: nowrap;}',
           '.scroll-wrapper .scroller-'+rand+' {opacity: 1;}'
-        ].join('')
+        ].join('');
 
     scroller.classList.add('scroller-'+rand);
     scrollWrapper.classList.add('scroll-wrapper');
