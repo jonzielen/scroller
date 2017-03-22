@@ -12,6 +12,12 @@
 
   <p class="scroller-2">Phasellus in enim at ante pellentesque volutpat. Integer vehicula nisi nec lectus lacinia tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in blandit elit, sit amet scelerisque nisl. Morbi ornare finibus lacus vitae vulputate.</p>
 
+  <p class="this-should-scroll">
+    text text text
+    <img src="http://www.nycgo.com/images/articles/25951/josh-groban-photo-by-chad-batka__banner.jpg" width="50" height="14" alt="">
+    more text stuff etc
+  </p>
+
   <script src="/js/main.js"></script>
   <script>
     NewsScroller(document.querySelector('.scroller-1')).ticker({
@@ -20,6 +26,9 @@
     });
 
     NewsScroller(document.querySelector('.scroller-2')).ticker();
+    NewsScroller(document.querySelector('.this-should-scroll')).ticker({
+      speed: 0.75
+    });
   </script>
 </body>
 </html>

@@ -41,7 +41,7 @@ var NewsScroller = function(obj) {
         css = [
           '.scroll-wrapper {position: relative;}',
           '.scroller-'+rand+' {opacity: 0; position: absolute; white-space: nowrap;}',
-          '.scroll-wrapper [class^="scroller-"] {opacity: 1;}'
+          '.scroll-wrapper .scroller-'+rand+' {opacity: 1;}'
         ].join('')
 
     scroller.classList.add('scroller-'+rand);
