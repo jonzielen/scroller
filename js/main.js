@@ -19,6 +19,12 @@ var NewsScroller = function(obj) {
     init(settings);
   }
 
+  // random number generator
+  function randomNumber() {
+    var num = Math.random();
+    return num.toString().slice(2);
+  }
+
   function init(settings) {
     var scroller = settings.scrollerItem,
         scrollerParent = scroller.parentElement,
@@ -30,13 +36,15 @@ var NewsScroller = function(obj) {
         head = document.head,
         styleSheeet = document.createElement('style'),
         scrollOffset = scrollerParent.getBoundingClientRect().right,
+        rand = randomNumber(),
+        keyframesName = 'tickerKF-'+rand;
         css = [
           '.scroll-wrapper {position: relative;}',
-          '.scroller {opacity: 0; position: absolute; white-space: nowrap;}',
-          '.scroll-wrapper .scroller {opacity: 1;}'
-        ].join('');
+          '.scroller-'+rand+' {opacity: 0; position: absolute; white-space: nowrap;}',
+          '.scroll-wrapper [class^="scroller-"] {opacity: 1;}'
+        ].join('')
 
-    scroller.classList.add('scroller');
+    scroller.classList.add('scroller-'+rand);
     scrollWrapper.classList.add('scroll-wrapper');
     scrollWrapper.appendChild(scroller);
     scrollerParent.appendChild(scrollWrapper);
@@ -47,10 +55,10 @@ var NewsScroller = function(obj) {
     var scrollerWidth = -Math.abs(scroller.getBoundingClientRect().right),
         animationTime = Math.abs(scrollerWidth / (100 * speed)),
         keyframes = [
-          '@keyframes tickerWrapperSlide {from {margin-left: '+scrollOffset+'px;} to {margin-left: '+scrollerWidth+'px;}}'
+          '@keyframes '+keyframesName+' {from {margin-left: '+scrollOffset+'px;} to {margin-left: '+scrollerWidth+'px;}}'
         ],
         scrollerAnimation = [
-          '.scroller {animation: '+animationTime+'s '+swing+' '+delay+'s '+iteration+' tickerWrapperSlide; margin-left: '+scrollOffset+'px;}'
+          '.scroller-'+rand+' {animation: '+animationTime+'s '+swing+' '+delay+'s '+iteration+' '+keyframesName+'; margin-left: '+scrollOffset+'px;}'
         ];
 
     styleSheeet.innerHTML = [
